@@ -33,35 +33,6 @@ public class App {
 			printer.printBoard(game);
 
 		}
-//
-//		System.out.println("This is an empty start board \n");
-//		game.setStarterBoardAndPrint();
-//
-//		System.out.println("\n \n What is your first move?");
-//
-//
-//
-//		game.makeMove(0,2,1,"X");
-//
-//		printer.printBoard(game);
-//
-//		System.out.println("\nround two");
-//		System.out.println();
-//
-//		game.makeMove(0,1,2,"O");
-//		printer.printBoard(game);
-//
-//		System.out.println("\nround three");
-//		System.out.println();
-//		game.makeMove(1,2,1,"X");
-//		printer.printBoard(game);
-//		System.out.println();
-//
-//		System.out.println();
-//		System.out.println("-----------------");
-////		game.setStarterBoardAndPrint();
-//
-//
 
 
 	}
