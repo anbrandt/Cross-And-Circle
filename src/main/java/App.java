@@ -1,3 +1,5 @@
+import sun.awt.motif.X11CNS11643;
+
 import java.util.Scanner;
 
 /**
@@ -12,29 +14,34 @@ public class App {
 		Printer printer = new Printer();
 
 		Game game = new Game();
-		boolean win = false;
+		boolean won = false;
 		int roundCounter = 0;
-		System.out.println("Welcome to the Cross and Circle (or Tic Tac Toe) Game. This is an empty board \n");
 		game.setStarterBoardAndPrint();
-		while(win == false) {
+
+		while(won == false) {
 
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("\nWhich player are you? 1 or 2");
 			int choosedPlayer = scanner.nextInt();
 			System.out.println("Choose your marks - X or O");
 			String choosedMark = scanner.next();
-			System.out.println("Player one: choose your x and y location");
+			System.out.println("Player one: choose your x and y location. Press ");
 			int xlocation = scanner.nextInt();
 			int ylocation = scanner.nextInt();
 
 			game.makeMove(xlocation, ylocation, choosedPlayer, choosedMark);
-			roundCounter++;
-			System.out.println("After round " + roundCounter + " the board looks like this \n");
+			game.isWon();
 			printer.printBoard(game);
+
+		}
+//
+//			roundCounter++;
+//			System.out.println("After round " + roundCounter + " the board looks like this \n");
+//			game.isWon();
 
 		}
 
 
 	}
 
-}
+//}
