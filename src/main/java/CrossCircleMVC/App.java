@@ -1,4 +1,4 @@
-import sun.awt.motif.X11CNS11643;
+package CrossCircleMVC;
 
 import java.util.Scanner;
 
