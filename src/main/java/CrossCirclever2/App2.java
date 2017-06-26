@@ -1,5 +1,6 @@
 package CrossCirclever2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -18,31 +19,42 @@ public class App2 {
 		game.setEmptyBoard();
 		game.printBoard();
 
-		while (win != true) {
-			Scanner scanner = new Scanner(System.in);
+		try {
+			while (win != true) {
+				Scanner scanner = new Scanner(System.in);
 
-			System.out.println("Player one uses X, Player two uses O. \n " +
-					"PLayer one, enter your X location");
-			int x = scanner.nextInt();
-			System.out.println(" And enter your Y location");
-			int y = scanner.nextInt();
+				System.out.println("Player one uses X, Player two uses O. \n " +
+						"PLayer one, enter your X location");
+				int x = scanner.nextInt();
+				System.out.println(" And enter your Y location");
+				int y = scanner.nextInt();
 
-			game.player1MakeMove(x, y);
-			game.checkForWin();
+				game.player1MakeMove(x, y);
 
-			System.out.println("PLayer two press X location");
-			int x2 = scanner.nextInt();
-			System.out.println("And enter your Y location");
-			int y2 = scanner.nextInt();
+				if(game.checkBoardForFullorWin() == true) {
+					win = true;
+				}
 
-			game.player2MakeMove(x2, y2);
-			game.checkForWin();
+				System.out.println("PLayer two press X location");
+				int x2 = scanner.nextInt();
+				System.out.println("And enter your Y location");
+				int y2 = scanner.nextInt();
 
-			if (game.checkForWin() != false) {
-				System.out.println("We have a winner! ");
-				win = true;
+				game.player2MakeMove(x2, y2);
+
+				if(game.checkBoardForFullorWin() == true) {
+					win = true;
+				}
+
+				if (game.checkForWin() != false) {
+					System.out.println("We have a winner! ");
+					win = true;
+				}
+
 			}
-
+		}catch (InputMismatchException e) {
+			e.getStackTrace();
+			System.out.println("Out of bounds");
 		}
 
 	}
